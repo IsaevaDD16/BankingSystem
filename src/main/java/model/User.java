@@ -36,13 +36,12 @@ public class User {
         int pSumma =0 ;
         int oSumma =0 ;
 
-        int k=0;
         for (Card card1:card) {
             if (card1.getSum() >= 0) {
-                 pSumma += card1.getSum();k=1;
+                 pSumma += card1.getSum();
             } else oSumma += card1.getSum();
         }  return new int[] {pSumma, oSumma};
-       // System.out.println("plus = "+pSumma+"  mines = " + oSumma) ;
+
     }
 
     public  void sortCardBySumm(ArrayList<Card> cards){
@@ -54,19 +53,16 @@ public class User {
             }
         });
     }
-    public  void searchCardBySumm(ArrayList<Card> card,int summa){
+    public ArrayList<Card> searchCardBySumm(ArrayList<Card> card, int summa){
         ArrayList<Card> scard = new ArrayList<>();
-        for (Card card1:card)
-        {
-            if (card1.getSum()==summa){
-               scard.add(card1);
+        for (Card card1:card) {
+            if (card1.getSum() == summa) {
+                scard.add(card1);
             }
 
-        }if(scard.isEmpty()){
-            System.out.println("no such card");
-        }else
-        System.out.println(scard);
+        }
 
+        return scard;
     }
 
     public int getId() {

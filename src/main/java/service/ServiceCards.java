@@ -12,7 +12,6 @@ public class ServiceCards {
     public ServiceCards() {
     }
 
-
     public static void addCard(User user, Card card){
        user.addCard(card);
        card.addUser(user);
@@ -28,9 +27,10 @@ public class ServiceCards {
         { System.out.println("no such card");}
     }
     public static int checkCard(ArrayList<User> users,Card card) {
+
         int f=0;
         for ( User user1:users) {
-            if(card!=null){
+            if(card.getNumber()!=null){
                if (user1.getCardId(card) == card.getId()) {
                    f=1;
               }
@@ -38,6 +38,7 @@ public class ServiceCards {
           }
 
          return f;
+
     }
 
 
@@ -53,13 +54,14 @@ public class ServiceCards {
         user.sortCardBySumm(user.getCards());
     }
 
-    public static void searchCardBySumm (User user, int sum)
-    {
-        user.searchCardBySumm(user.getCards(),sum);
+    public static void searchCardBySumm (User user, int sum) {
+
+        if (user.searchCardBySumm(user.getCards(), sum).isEmpty()) {
+            System.out.println("no such card");
+        } else
+            System.out.println(user.searchCardBySumm(user.getCards(), sum));
+
     }
-
-
-
 
 }
 
